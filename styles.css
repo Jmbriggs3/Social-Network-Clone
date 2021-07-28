@@ -20,6 +20,7 @@
     --button-link: #e0e2e8;
     --stories-bg:#090909; 
     --icon-circle-bg: linear-gradient(0deg, rgba(102,122,122,1) 6%, rgba(253,187,45,1) 92%); /* cssgradient.io */
+    --shadow-color: rgba(0,0,0,.25);
 } 
 
 body { 
@@ -36,7 +37,7 @@ header {
     align-items: center; 
     justify-content: space-between;
     width: 100%; 
-    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, .5); 
+    box-shadow: 0px 0px 5px 0px var(--shadow-color);
     position: fixed; 
     z-index: 20; 
     top: 0; 
@@ -215,20 +216,20 @@ header {
 .sidenav__item-css3-icon { 
     height: 35px; 
     width: 35px; 
-    margin-right: 15px;
+    margin-right: 20px;
     border-radius: 50%;
 } 
 
 .sidenav__item-html5-icon { 
     width: 35px; 
     border-radius: 50%;
-    margin-right: 15px;
+    margin-right: 20px;
 } 
 
 .sidenav__item-js-icon { 
     width: 35px; 
     border-radius: 50%; 
-    margin-right: 14px;
+    margin-right: 20px;
 }
     
 .sidenav__item-notification { 
@@ -310,7 +311,7 @@ header {
     border-radius: 5px;
     background: var(--stories-bg);
     position: relative; 
-    box-shadow: 0px 2px 2px 0px var(--fb-black); 
+    box-shadow: 0px 2px 2px 0px var(--shadow-color); 
     margin-right: 10px; 
     cursor: pointer;
 } 
@@ -385,7 +386,7 @@ header {
     width: 100%; 
     flex: none; 
     border-radius: 5px; 
-    box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, .25); 
+    box-shadow: 0px 1px 2px 0px var(--shadow-color);
     margin-bottom: 20px;
 } 
 
@@ -410,7 +411,8 @@ header {
     color: var(--light-color-text); 
     padding-left: 20px; 
     font-weight: 300; 
-    width: 100%;
+    width: 100%; 
+    margin:5px 5px 0 0;
 } 
 
 .hline { 
@@ -435,23 +437,28 @@ header {
 
 .post-types__item .fas, .post-types__item .far { 
     margin: 10px; 
-    font-size: 1.5rem;
+    font-size: 1.5rem; 
+    cursor: pointer;
 } 
 
 .post-types__item .fa-video { 
-    color: var(--fb-red);
+    color: var(--fb-red); 
+    cursor: pointer;
 } 
 
 .post-types__item .fa-photo-video { 
     color: var(--fb-green);
+    cursor: pointer;
+
 } 
 
 .post-types__item .fa-laugh-beam { 
     color: var(--fb-yellow);
+    cursor: pointer;
 } 
 
 .photopost { 
-    padding: 0; 
+    padding: 0 0 20px; 
 }
 
 .photopost__info { 
@@ -459,7 +466,7 @@ header {
     display: flex; 
     justify-content: space-between;
     align-items: center; 
-    padding: 20px 20px 0px; 
+    padding: 10px 20px 20px; 
 } 
 
 .photopost__left { 
@@ -472,10 +479,177 @@ header {
     width: 40px; 
     height: 40px; 
     border-radius: 50%;
-    margin-right: 10px;
+    margin: 10px 10px 10px 0px;
+} 
+
+.photopost__details { 
+    display: flex; 
+    flex-direction: column; 
+    align-items: flex-start;
+} 
+
+.photopost__name { 
+    font-size: .9rem; 
+    margin-bottom: 5px; 
+    font-weight: 400;
+} 
+
+.photopost__date { 
+    font-size: .7rem; 
+    color: var(--light-color-text); 
+} 
+
+.photopost__info .fa-ellipsis-h { 
+    color: var(--light-color-text);
+} 
+
+.photopost__description { 
+    padding: 0 20px; 
+    margin-bottom: 20px;
+}  
+
+.photopost__img img { 
+    width: 100%;
+} 
+
+.photopost__stats { 
+    height: 50px; 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    padding: 0 20px; 
+    color: var(--light-color-text); 
+    font-weight: 300; 
+    font-size: .9rem;
+} 
+
+.photopost__stats-emojis { 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+} 
+
+.emoji-circle { 
+    display: flex; 
+    width: 22px; 
+    height: 22px; 
+    background: black; 
+    color: white; 
+    justify-content: center; 
+    align-items: center; 
+    font-size: .4rem; 
+    border-radius: 50%; 
+    border: 2px solid white; 
+    position: relative; 
 }
 
+.emoji-circle:nth-child(1) { 
+    z-index: 3;
+}
 
+.emoji-circle:nth-child(2) { 
+    left: -5px;
+    z-index: 2;
+
+}
+
+.emoji-circle:nth-child(3) { 
+    left: -10px;
+    z-index: 1;
+}
+
+.emoji-circle--blue { 
+    background: linear-gradient(0deg, rgba(4,60,108,1) 0%, rgba(10,134,240,1) 100%);
+}
+
+.emoji-circle--red { 
+    background:  linear-gradient(0deg, rgba(92,15,26,1) 0%, rgba(238,35,64,1) 100%);
+}
+
+.emoji-circle--yellow { 
+    background:  #000000; 
+    overflow: hidden;
+}
+
+.emoji-circle--blue .fa-thumbs-up { 
+    position: relative; 
+    top:-1px;
+} 
+
+.emoji-circle--yellow .fa-surprise { 
+    color:rgba(246, 176, 36, 1);
+    font-size: 1.3rem;
+    position: relative; 
+    top:-1px; 
+} 
+
+.photopost__actions { 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    margin-bottom: 20px;
+}
+
+.photopost__link { 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    color: var(--light-color-text); 
+    width: 100%; 
+    text-decoration: none;
+} 
+
+.photopost__link .fas { 
+    margin-right: 10px;
+} 
+
+.floatingmsg { 
+    position: fixed; 
+    bottom: 0; 
+    right: 20px; 
+    cursor: pointer;
+} 
+
+.floatingmsg__bubble { 
+    width: 50px; 
+    height: 50px; 
+    border-radius: 50%; 
+    box-shadow: 0px 5px 10px 0px var(--shadow-color); 
+    background: var(--button-link); 
+    margin-bottom: 10px; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    position: relative;
+} 
+
+.floatingmsg__bubble:hover .fa-edit {
+    color: var(--fb-blue); 
+}
+
+.floatingmsg__bubble img { 
+    width: 50px; 
+    height: 50px; 
+    border-radius: 50%;
+}
+
+.floatingmsg__notification { 
+    background: var(--fb-red); 
+    color: white; 
+    width: 20px; 
+    height: 20px; 
+    border-radius: 50%; 
+    font-size: .8rem; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    border-radius: 50%; 
+    position: absolute; 
+    top: -5px; 
+    right: -5px; 
+    font-weight: 700; 
+    z-index: 3;
+}
 
   
 
